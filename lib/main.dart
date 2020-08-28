@@ -23,7 +23,11 @@ class _BrandLadderState extends State<BrandLadder> {
   final _biggerFont = TextStyle(fontSize: 18.0);
 
   Widget _buildRow(Text brand) {
-    return ListTile(
+    return ExpansionTile(
+      trailing: Icon(
+        MdiIcons.circleOutline,
+        size: 0,
+      ),
       leading: Icon(
         MdiIcons.brain,
         size: 40,
