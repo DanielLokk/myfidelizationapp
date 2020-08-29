@@ -24,32 +24,46 @@ class _BrandLadderState extends State<BrandLadder> {
 
   Widget _buildRow(Text brand) {
     return ExpansionTile(
-      trailing: Icon(
-        MdiIcons.circleOutline,
-        size: 0,
+      title: Text(
+        brand.toString().split("\"")[1],
+        style: _biggerFont,
       ),
       leading: Icon(
         MdiIcons.brain,
         size: 40,
       ),
-      title: Text(
-        brand.toString().split("\"")[1],
-        style: _biggerFont,
+      trailing: Icon(
+        MdiIcons.circleOutline,
+        size: 0,
       ),
+      backgroundColor: Colors.yellow,
+      initiallyExpanded: false,
+      children: <Widget>[
+        Column(
+          children: <Widget>[
+            Text("Enjoy home made pizza"),
+            Text("THE PLEASURES OF MEETING WITH ME")
+          ],
+        )
+      ],
     );
   }
 
   Widget _buildBrands() {
     _brandNames.clear();
     _brandNames.addAll([
-      new Text("El fornet"),
-      new Text("Buenas Migas"),
-      new Text("Mc Donalds")
+      new Text("ElFornet"),
+      new Text("BuenasMigas"),
+      new Text("McDonalds"),
+      new Text("Vivari"),
+      new Text("LaTagliatella"),
+      new Text("McDonalds"),
+      new Text("BurgerKing")
     ]);
 
     return ListView.builder(
         padding: EdgeInsets.all(16.0),
-        itemCount: _brandNames.length + 2, // no funciona massa be
+        itemCount: _brandNames.length * 2,
         itemBuilder: (context, i) {
           if (i.isOdd) return Divider();
           final index = i ~/ 2;
