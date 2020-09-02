@@ -1,7 +1,7 @@
 import 'dart:io';
+import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myfidelizationapp/model/brand.dart';
 
@@ -61,10 +61,11 @@ class _BrandLadderState extends State<BrandLadder> {
 
   Widget _buildBrands() {
     _brands.clear();
+
     _brands.add(new Brand(
         name: "El fornet",
         icon: Image.file(new File("/Users/dani/Downloads/fornet.png")),
-        bg: Colors.green,
+        bg: Colors.green[700],
         has: 0,
         total: 10));
     _brands.add(new Brand(
@@ -79,6 +80,16 @@ class _BrandLadderState extends State<BrandLadder> {
         bg: Colors.amber,
         has: 0,
         total: 10));
+
+    for (var i = 0; i < 20; i++) {
+      _brands.add(new Brand(
+          name: "El fornet",
+          icon: Image.file(new File("/Users/dani/Downloads/fornet.png")),
+          bg: Color((math.Random().nextDouble() * 0xFFFFFF).toInt())
+              .withOpacity(1.0),
+          has: 0,
+          total: 10));
+    }
 
     return ListView.builder(
         itemCount: _brands.length,
