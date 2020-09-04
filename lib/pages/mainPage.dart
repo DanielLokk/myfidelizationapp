@@ -4,6 +4,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myfidelizationapp/model/brand.dart';
+import 'package:myfidelizationapp/model/data.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -23,7 +24,7 @@ class BrandLadder extends StatefulWidget {
 }
 
 class _BrandLadderState extends State<BrandLadder> {
-  final _brands = <Brand>[];
+  final List _brands = AppData.brandsList;
 
   Widget _buildRow(Brand brand) {
     return Center(
@@ -60,37 +61,6 @@ class _BrandLadderState extends State<BrandLadder> {
   }
 
   Widget _buildBrands() {
-    _brands.clear();
-
-    _brands.add(new Brand(
-        name: "El fornet",
-        icon: Image.file(new File("/Users/dani/Downloads/fornet.png")),
-        bg: Colors.green[700],
-        has: 0,
-        total: 10));
-    _brands.add(new Brand(
-        name: "Buenas Migas",
-        icon: Image.file(new File("/Users/dani/Downloads/buenasmigas.png")),
-        bg: Colors.black12,
-        has: 0,
-        total: 10));
-    _brands.add(new Brand(
-        name: "Vivari",
-        icon: Image.file(new File("/Users/dani/Downloads/vivari.png")),
-        bg: Colors.amber,
-        has: 0,
-        total: 10));
-
-    for (var i = 0; i < 20; i++) {
-      _brands.add(new Brand(
-          name: "El fornet",
-          icon: Image.file(new File("/Users/dani/Downloads/fornet.png")),
-          bg: Color((math.Random().nextDouble() * 0xFFFFFF).toInt())
-              .withOpacity(1.0),
-          has: 0,
-          total: 10));
-    }
-
     return ListView.builder(
         itemCount: _brands.length,
         itemBuilder: (context, i) {
