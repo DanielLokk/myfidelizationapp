@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:math' as math;
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:myfidelizationapp/model/brand.dart';
@@ -30,34 +31,23 @@ class _BrandLadderState extends State<BrandLadder> {
     return InkWell(
       onTap: () => {Navigator.pushNamed(context, '/cards')},
       child: Container(
-        padding: EdgeInsets.only(top: 40.0, left: 45.0, bottom: 40.0),
+        padding: EdgeInsets.only(top: 35.0, left: 45.0, bottom: 35.0),
         decoration: BoxDecoration(
             color: brand.bg, border: Border.all(color: Colors.white30)),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                IconButton(
-                  icon: Transform.scale(
-                    scale: 3,
-                    child: ImageIcon(
-                      brand.icon.image,
-                      size: 40,
-                    ),
-                  ),
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/cards');
-                  },
-                ),
-                Padding(padding: EdgeInsets.only(left: 140.0)),
-                Text(
-                  brand.name.toUpperCase(),
-                  style: GoogleFonts.muli(),
-                ),
-              ],
-            )
-          ],
+        child: FractionalTranslation(
+          translation: Offset(-0.06, 0.0),
+          child: IconButton(
+            icon: Transform.scale(
+              scale: 4,
+              child: ImageIcon(
+                brand.icon.image,
+                size: 40,
+              ),
+            ),
+            onPressed: () {
+              Navigator.pushNamed(context, '/cards');
+            },
+          ),
         ),
       ),
     );
@@ -75,7 +65,7 @@ class _BrandLadderState extends State<BrandLadder> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(10.0),
+          preferredSize: Size.fromHeight(5.0),
           child: AppBar(),
         ),
         body: _buildBrands());
