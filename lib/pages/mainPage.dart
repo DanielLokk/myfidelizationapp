@@ -27,7 +27,8 @@ class _BrandLadderState extends State<BrandLadder> {
   final List _brands = AppData.brandsList;
 
   Widget _buildRow(Brand brand) {
-    return Center(
+    return InkWell(
+      onTap: () => {Navigator.pushNamed(context, '/cards')},
       child: Container(
         padding: EdgeInsets.only(top: 40.0, left: 45.0, bottom: 40.0),
         decoration: BoxDecoration(
@@ -45,7 +46,9 @@ class _BrandLadderState extends State<BrandLadder> {
                       size: 40,
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/cards');
+                  },
                 ),
                 Padding(padding: EdgeInsets.only(left: 140.0)),
                 Text(
