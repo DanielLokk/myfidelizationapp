@@ -1,9 +1,5 @@
-import 'dart:io';
-import 'dart:math' as math;
-
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:myfidelizationapp/model/brand.dart';
 import 'package:myfidelizationapp/model/data.dart';
 
@@ -13,18 +9,6 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  @override
-  Widget build(BuildContext context) {
-    return BrandLadder();
-  }
-}
-
-class BrandLadder extends StatefulWidget {
-  @override
-  _BrandLadderState createState() => _BrandLadderState();
-}
-
-class _BrandLadderState extends State<BrandLadder> {
   final List _brands = AppData.brandsList;
 
   Widget _buildRow(Brand brand) {
