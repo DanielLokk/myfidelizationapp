@@ -29,7 +29,11 @@ class _MainPageState extends State<MainPage> {
               ),
             ),
             onPressed: () {
-              Navigator.pushNamed(context, '/cards');
+              Navigator.pushNamed(
+                context,
+                '/cards',
+                arguments: brand,
+              );
             },
           ),
         ),
